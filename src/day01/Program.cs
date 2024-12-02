@@ -23,12 +23,7 @@ void PartOne()
         (acc, cur) =>
         {
             var (first, second) = cur;
-            if(second > first)
-            {
-                (first, second) = (second, first);
-            }
-
-            return acc + first - second;
+            return acc + Math.Abs(first - second);
         }
     );
 
@@ -57,5 +52,5 @@ void PartTwo()
     Console.WriteLine(result);
 }
 
-// PartOne();
+PartOne();
 PartTwo();
