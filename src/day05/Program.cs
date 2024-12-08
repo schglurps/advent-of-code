@@ -21,11 +21,18 @@ bool IsUpdateValid(Span<int> update) {
         : IsUpdateValid(update[1..]);
 }
 
-int result = 0;
+int partOne = 0;
+int partTwo = 0;
 while((line = (await sr.ReadLineAsync())!) != null)
 {
     var currentUpdate = line.Split(",").Select(int.Parse).ToArray().AsSpan();
     if(IsUpdateValid(currentUpdate))
-        result += currentUpdate[(currentUpdate.Length - 1) / 2];
+        partOne += currentUpdate[(currentUpdate.Length - 1) / 2];
+    else
+    {
+        currentUpdate.Sort((a, b) => rules.Contains((a, b)) ? -1 : 1);
+        partTwo += currentUpdate[(currentUpdate.Length - 1) / 2]; 
+    }
 }
-Console.WriteLine(result);
+Console.WriteLine(partOne);
+Console.WriteLine(partTwo);
