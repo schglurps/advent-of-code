@@ -35,11 +35,7 @@ public static class Part2
                 });
 
         if(result == default)
-        {
-            foreach(var n in numbers) Console.Write($"{n} ");
-            Console.WriteLine();
             return true;
-        }
     
         if(isDampened)
             return false;
