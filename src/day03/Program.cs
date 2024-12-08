@@ -7,10 +7,10 @@ partial class Program
 
     public static async Task Main(string[] args)
     {
-        Console.WriteLine(await NewMethod().SumAsync());
+        Console.WriteLine(await PartOne().SumAsync());
     }
 
-    private static async IAsyncEnumerable<int> NewMethod()
+    private static async IAsyncEnumerable<int> PartOne()
     {
         StreamReader sr = new("input");
         string? line;
